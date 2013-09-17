@@ -31,7 +31,7 @@
 		jar" />
 		</war>
 	</target>
-	<!-- 
+	
 	<property name="src.tests" location="src" />
 	<property name="build.tests" location="build/classes" />
 	<property name="reports.tests" location="src" />
@@ -55,7 +55,7 @@
 			</batchtest>
 		</junit>
 	</target>
-		-->
+		
 	<property file="user.properties" />
 	<property name="managerUsername" value="karl" />
 	<property name="src.dir" location="src" />
