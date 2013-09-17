@@ -33,6 +33,8 @@
 	</target>
 	
 	<property name="src.tests" location="src" />
+	<property name="build.tests" location="build/classes" />
+	<property name="reports.tests" location="src" />
 	
 	<target name="test">
 		<junit printsummary="yes" haltonfailure="yes">
