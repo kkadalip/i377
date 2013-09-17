@@ -11,7 +11,7 @@ import javax.servlet.http.HttpSession;
 
 //Esimene servlet n3itab kasutaja sessiooni id-d ja sessiooni pandud
 //atribuudi v22rtust.
-//Võimaldab sessiooni atribuuti seada (?param=value1).
+//V6imaldab sessiooni atribuuti seada (?param=value1).
 //Seadmiseks on servleti parameeter nimega "param".
 //N2ide: http://ci.itcollege.ee/part2example/HomePage
 public class Osa2yl1 extends HttpServlet {
