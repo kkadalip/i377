@@ -4,7 +4,7 @@
         Minu elu esimene ANT-i build fail
     </description>
 	
-	<target name="compile" depends="clean, init">
+	<target name="compile" depends="clean, init,test">
 		<javac srcdir="src"
 		   	   destdir="build/classes"
 			   source="1.6" target="1.6" includeantruntime="false"

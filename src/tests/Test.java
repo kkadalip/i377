@@ -106,7 +106,7 @@ public class Homework2Test  {
         }
     }
 
-    private HashSet<WebDriver> openDriversDrivers = new HashSet<>();
+    private Set<WebDriver> openDriversDrivers = new HashSet<>();
 
     private String getPageSource(String pageName) {
         return getPageSource(pageName, getDriver());
