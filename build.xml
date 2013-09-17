@@ -48,7 +48,7 @@
 	
 	<target name="war" depends="compile">
 		<war destfile="${war.file}"
-			 webxml="${webContent.dir}/WEBINF/web.xml">
+			 webxml="${webContent.dir}/WEB-INF/web.xml">
 		<classes dir="${classes.dir}" />
 		<fileset dir="${webContent.dir}"
 			excludes="**/servletapi.jar" />
