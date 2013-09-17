@@ -14,7 +14,7 @@
 	<property name="managerUrl" value="http://localhost:8080/manager/text" />
 	<property name="managerUsername" value="tomcat" />
 	<property name="managerPassword" value="tomcat" />
-	<property name="deployContextPath" value="/apache-tomcat-7.0.42/" />
+	<property name="deployContextPath" value="D:/apache-tomcat-7.0.42/lib" />
 	
 	<property name="src.tests" location="src/tests" />
 	<property name="build.tests" location="build/classes/tests" />
@@ -25,20 +25,24 @@
 		
 	<property file="user.properties" location="user.properties" />
 	
+	<path id="compile.classpath">
+		<fileset dir="${lib.dir}">
+			<include name="*.jar"/>
+		</fileset>
+	</path>
 	<target name="compile" depends="clean, init">
-		<classpath id="compile.classpath">
-			<fileset dir="${lib.dir}">
-				<include name="*.jar" />
-			</fileset>
-		</classpath>
 		<javac srcdir="${src.dir}"
 		   	   destdir="${classes.dir}"
 			   source="1.6"
 			   target="1.6"
-			   includeantruntime="false"/>
-		<classpath refid="compile.classpath" />
+			   includeantruntime="false">
+			<classpath refid="compile.classpath" />
+		</javac>
 	</target>
 
+	
+	
+	
 	<target name="init">
 		<mkdir dir="${classes.dir}" />
 	</target>
