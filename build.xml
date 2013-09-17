@@ -7,8 +7,8 @@
 	<property name="src.dir" location="src" />
 	<property name="build.dir" location="build" />
 	<property name="classes.dir" location="${build.dir}/classes" />
-	<property name="lib.dir" location="${webContent.dir}/WEB-INF/lib" />
 	<property name="webContent.dir" location="WebContent" />
+	<property name="lib.dir" location="${webContent.dir}/WEB-INF/lib" />
 	<property name="war.file" location="whatever.war" />
 	
 	<property name="managerUrl" value="http://localhost:8080/manager/text" />
@@ -16,14 +16,12 @@
 	<property name="managerPassword" value="tomcat" />
 	<property name="deployContextPath" value="D:/apache-tomcat-7.0.42/lib" />
 	
-	<property name="src.tests" location="src/tests" />
+	<!-- <property name="src.tests" location="src/tests" />
 	<property name="build.tests" location="build/classes/tests" />
-	<property name="reports.tests" location="" />
-	<property name="java.class.path" location="${lib.dir};src/Homework2Test.java" />
+	<property name="reports.tests" location="build/reports" />
+	<property name="java.class.path" location="${lib.dir};src/Homework2Test.java" /> -->
 
-	<property name="managerUsername" value="karl" />
-		
-	<property file="user.properties" location="user.properties" />
+	<property file="user.properties" location="." />
 	
 	<path id="compile.classpath">
 		<fileset dir="${lib.dir}">
@@ -40,9 +38,6 @@
 		</javac>
 	</target>
 
-	
-	
-	
 	<target name="init">
 		<mkdir dir="${classes.dir}" />
 	</target>
@@ -53,7 +48,7 @@
 	
 	<target name="war" depends="compile">
 		<war destfile="${war.file}"
-		webxml="${webContent.dir}/WEBINF/web.xml">
+			 webxml="${webContent.dir}/WEBINF/web.xml">
 		<classes dir="${classes.dir}" />
 		<fileset dir="${webContent.dir}"
 			excludes="**/servletapi.jar" />
@@ -79,33 +74,34 @@
 		</junit>
 	</target>
 	
-	<target name="deploy" depends="war">
-		<path id="classpath.tomcat">
-			<fileset dir="${dir.tomcat}/lib">
-				<include name="*.jar" />
-				</fileset>
-					<fileset dir="${dir.tomcat}/bin">
-				<include name="*.jar" />
-			</fileset>
-		</path>
-		<taskdef name="deploy"
-		         classname="org.apache.catalina.ant.DeployTask"
-		         classpathref="classpath.tomcat"/>
-		<deploy url="${managerUrl}"
-		username="${managerUsername}"
-		password="${managerPassword}"
-		path="${deployContextPath}"
-		update="true" war="file:${war.file}" />
-	</target>
+	<path id="classpath.tomcat">
+		<fileset dir="${dir.tomcat}/lib">
+			<include name="*.jar" />
+		</fileset>
+		<fileset dir="${dir.tomcat}/bin">
+			<include name="*.jar" />
+		</fileset>
+	</path>
 	
+	<target name="deploy" depends="war">
+		<classpath refid="classpath.tomcat"/>
+		<taskdef name="deploy"
+		         classname="org.apache.catalina.ant.DeployTask"/>
+		<deploy url="${managerUrl}"
+				username="${managerUsername}"
+				password="${managerPassword}"
+				path="${deployContextPath}"
+				update="true" war="file:${war.file}"/>
+	</target>
+		
 	<target name="undeploy">
+		<classpath refid="classpath.tomcat"/>
 		<taskdef name="undeploy"
-		         classname="org.apache.catalina.ant.UndeployTask"
-		         classpathref="classpath.tomcat" />
-		<undeploy url="${managerUrl}"
-		username="${managerUsername}"
-		password="${managerPassword}"
-		path="${deployContextPath}" />
+		         classname="org.apache.catalina.ant.UndeployTask"/>
+				<undeploy url="${managerUrl}"
+				username="${managerUsername}"
+				password="${managerPassword}"
+				path="${deployContextPath}" />
 	</target>
 		
 </project>
