@@ -54,5 +54,11 @@
 	<classpathentry kind="lib" path="C:/Users/Karl/workspaceJEE/kkadalip/extra/selenium-2.35.0/libs/xalan-2.7.1.jar"/>
 	<classpathentry kind="lib" path="C:/Users/Karl/workspaceJEE/kkadalip/extra/selenium-2.35.0/libs/xercesImpl-2.10.0.jar"/>
 	<classpathentry kind="lib" path="C:/Users/Karl/workspaceJEE/kkadalip/extra/selenium-2.35.0/libs/xml-apis-1.4.01.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Karl/workspaceJEE/kkadalip/extra/commons-dbutils-1.5/commons-dbutils-1.5.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Karl/workspaceJEE/kkadalip/extra/commons-dbutils-1.5/commons-dbutils-1.5-javadoc.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Karl/workspaceJEE/kkadalip/extra/commons-dbutils-1.5/commons-dbutils-1.5-sources.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Karl/workspaceJEE/kkadalip/extra/commons-dbutils-1.5/commons-dbutils-1.5-tests.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Karl/workspaceJEE/kkadalip/extra/commons-dbutils-1.5/commons-dbutils-1.5-test-sources.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Karl/workspaceJEE/kkadalip/extra/jstl-1.2.jar"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>
