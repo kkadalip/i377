@@ -32,7 +32,7 @@
 		</war>
 	</target>
 	
-	<property name="src.tests" location="src.tests" />
+	<property name="src.tests" location="src" />
 	
 	<target name="test">
 		<junit printsummary="yes" haltonfailure="yes">
