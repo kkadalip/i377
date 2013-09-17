@@ -32,6 +32,8 @@
 		</war>
 	</target>
 	
+	<property name="src.tests" location="src.tests" />
+	
 	<target name="test">
 		<junit printsummary="yes" haltonfailure="yes">
 			<classpath>
