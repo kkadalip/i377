@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSessionEvent;
 import javax.servlet.http.HttpSessionListener;
 
+
 //Teine servlet näitab avatud sessioonide arvu.
 //Sessioonide lugemiseks kasutada listener-i. Näide loengu
 //slaididelt.
@@ -33,7 +34,7 @@ public class Osa2yl2 extends HttpServlet implements HttpSessionListener {
 	}
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		response.getWriter().println(getSessionCount());
+		response.getWriter().println("count: "+getSessionCount());
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
