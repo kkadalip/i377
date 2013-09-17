@@ -54,5 +54,8 @@
 			</batchtest>
 		</junit>
 	</target>
-	
+		
+	<property file="user.properties" />
+	<property name="managerUsername" value="karl" />
+	<property name="src.dir" location="src" />
 </project>
