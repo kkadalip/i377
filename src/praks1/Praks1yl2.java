@@ -8,9 +8,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 /*
-2. Tekitage Servlet, mis küsib kasutajalt tema nime ja tervitab teda vastu
-doGet-is trükkida vorm, mis kasutab POST meetodit
-doPost-is võtta vormi andmetest ( request.getParameter(...) ) nimi ja trükkida see väljundisse
+2. Tekitage Servlet, mis kysib kasutajalt tema nime ja tervitab teda vastu
+doGet-is trykkida vorm, mis kasutab POST meetodit
+doPost-is v6tta vormi andmetest ( request.getParameter(...) ) nimi ja trykkida see v2ljundisse
 */
 public class Praks1yl2 extends HttpServlet {
 	private static final long serialVersionUID = 1L;

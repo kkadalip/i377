@@ -8,9 +8,9 @@ import javax.servlet.http.HttpServletResponse;
 /*
  * 
 1. Tekitage servlet, mis loeb konkreetse kasutaja "reloadide" arvu
-   Salvestage sessiooni Integer tüüpi muutuja
-   Suurendage seda igas doGet väljakutses
-   Trükkige muutuja väärtus väljundisse
+   Salvestage sessiooni Integer tyypi muutuja
+   Suurendage seda igas doGet v2ljakutses
+   Trykkige muutuja v22rtus v2ljundisse
  */
 public class Praks1yl1 extends HttpServlet {
 	private static final long serialVersionUID = 1L;

@@ -9,8 +9,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-//Kolmas servlet võimaldab sessiooni lõpetada.
-//Näide: http://ci.itcollege.ee/part2example/LogOut
+//Kolmas servlet v6imaldab sessiooni l6petada.
+//N2ide: http://ci.itcollege.ee/part2example/LogOut
 public class Osa2yl3 extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 

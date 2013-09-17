@@ -11,10 +11,10 @@ import javax.servlet.http.HttpSessionEvent;
 import javax.servlet.http.HttpSessionListener;
 
 
-//Teine servlet näitab avatud sessioonide arvu.
-//Sessioonide lugemiseks kasutada listener-i. Näide loengu
+//Teine servlet n2itab avatud sessioonide arvu.
+//Sessioonide lugemiseks kasutada listener-i. N2ide loengu
 //slaididelt.
-//Näide: http://ci.itcollege.ee/part2example/SessionCount
+//N2ide: http://ci.itcollege.ee/part2example/SessionCount
 public class Osa2yl2 extends HttpServlet implements HttpSessionListener {
 	private static final long serialVersionUID = 1L;
     

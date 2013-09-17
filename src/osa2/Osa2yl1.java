@@ -9,11 +9,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-//Esimene servlet n‰itab kasutaja sessiooni id-d ja sessiooni pandud
-//atribuudi v‰‰rtust.
+//Esimene servlet n3itab kasutaja sessiooni id-d ja sessiooni pandud
+//atribuudi v22rtust.
 //Vıimaldab sessiooni atribuuti seada (?param=value1).
 //Seadmiseks on servleti parameeter nimega "param".
-//N‰ide: http://ci.itcollege.ee/part2example/HomePage
+//N2ide: http://ci.itcollege.ee/part2example/HomePage
 public class Osa2yl1 extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
