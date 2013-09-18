@@ -1,4 +1,4 @@
-/build
-
-/WebContent/WEB-INF/lib
-/src/tests
+build
+/*
+WebContent/WEB-INF/lib/*
+src/tests/*
