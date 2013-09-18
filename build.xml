@@ -29,7 +29,7 @@
 	<property file="user.properties" location="." />
 	
 	<path id="compile.classpath">
-		<fileset dir="lib">
+		<fileset dir="${basedir}/lib">
 			<include name="*.jar"/>
 		</fileset>
 	</path>
