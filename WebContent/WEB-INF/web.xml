@@ -15,33 +15,33 @@
     <servlet-name>Osa1yl1</servlet-name>
     <servlet-class>osa1.Osa1yl1</servlet-class>
   </servlet>
-  <servlet>  	
-	<display-name>Osa2yl1</display-name>
+  <servlet>
+    <display-name>Osa2yl1</display-name>
     <servlet-name>Osa2yl1</servlet-name>
     <servlet-class>osa2.Osa2yl1</servlet-class>
-  </servlet>	
+  </servlet>
   <servlet>
-	<display-name>Osa2yl2</display-name>
+    <display-name>Osa2yl2</display-name>
     <servlet-name>Osa2yl2</servlet-name>
     <servlet-class>osa2.Osa2yl2</servlet-class>
   </servlet>
-  <servlet>  	
-	<display-name>Osa2yl3</display-name>
+  <servlet>
+    <display-name>Osa2yl3</display-name>
     <servlet-name>Osa2yl3</servlet-name>
     <servlet-class>osa2.Osa2yl3</servlet-class>
   </servlet>
-  <servlet>	
-	<display-name>Praks1yl1</display-name>
+  <servlet>
+    <display-name>Praks1yl1</display-name>
     <servlet-name>Praks1yl1</servlet-name>
     <servlet-class>praks1.Praks1yl1</servlet-class>
   </servlet>
-  <servlet>	
-	<display-name>Praks1yl2</display-name>
+  <servlet>
+    <display-name>Praks1yl2</display-name>
     <servlet-name>Praks1yl2</servlet-name>
     <servlet-class>praks1.Praks1yl2</servlet-class>
   </servlet>
-  <servlet>	
-	<display-name>Praks1yl3</display-name>
+  <servlet>
+    <display-name>Praks1yl3</display-name>
     <servlet-name>Praks1yl3</servlet-name>
     <servlet-class>praks1.Praks1yl3</servlet-class>
   </servlet>
@@ -49,28 +49,28 @@
     <servlet-name>Osa1yl1</servlet-name>
     <url-pattern>/Osa1yl1</url-pattern>
   </servlet-mapping>
-  <servlet-mapping>	
-	<servlet-name>Osa2yl1</servlet-name>
+  <servlet-mapping>
+    <servlet-name>Osa2yl1</servlet-name>
     <url-pattern>/Osa2yl1</url-pattern>
   </servlet-mapping>
-  <servlet-mapping>		
-	<servlet-name>Osa2yl2</servlet-name>
+  <servlet-mapping>
+    <servlet-name>Osa2yl2</servlet-name>
     <url-pattern>/Osa2yl2</url-pattern>
   </servlet-mapping>
-  <servlet-mapping>		
-	<servlet-name>Osa2yl3</servlet-name>
+  <servlet-mapping>
+    <servlet-name>Osa2yl3</servlet-name>
     <url-pattern>/Osa2yl3</url-pattern>
   </servlet-mapping>
-  <servlet-mapping>		
-	<servlet-name>Praks1yl1</servlet-name>
+  <servlet-mapping>
+    <servlet-name>Praks1yl1</servlet-name>
     <url-pattern>/Praks1yl1</url-pattern>
   </servlet-mapping>
-  <servlet-mapping>		
-	<servlet-name>Praks1yl2</servlet-name>
+  <servlet-mapping>
+    <servlet-name>Praks1yl2</servlet-name>
     <url-pattern>/Praks1yl2</url-pattern>
   </servlet-mapping>
-  <servlet-mapping>		
-	<servlet-name>Praks1yl3</servlet-name>
+  <servlet-mapping>
+    <servlet-name>Praks1yl3</servlet-name>
     <url-pattern>/Praks1yl3</url-pattern>
   </servlet-mapping>
   <listener>
@@ -78,4 +78,14 @@
       osa2.Osa2yl2
     </listener-class>
   </listener>
+  <servlet>
+    <description></description>
+    <display-name>asd</display-name>
+    <servlet-name>asd</servlet-name>
+    <servlet-class>asd</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>asd</servlet-name>
+    <url-pattern>/asd</url-pattern>
+  </servlet-mapping>
 </web-app>
