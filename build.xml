@@ -87,7 +87,7 @@
 			<include name="*.jar" />
 		</fileset>
 	</path>
-	
+	<!--
 	<target name="deploy" depends="war">
 		<classpath refid="classpath.tomcat"/>
 		<taskdef name="deploy"
@@ -108,7 +108,7 @@
 						  password="${managerPassword}"
 						  path="${deployContextPath}"/>
 	</target>
-
+ 	-->
 	<path id="classpath.retrieve">
 		<fileset dir="${ivylib.dir}">
 			<include name="*.jar" />
