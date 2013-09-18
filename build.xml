@@ -1,20 +1,23 @@
 <?xml version="1.0" ?>
-<project name="kkadalip" default="compile" basedir="." >
+<project name="kkadalip" default="compile" basedir="." xmlns:ivy="antlib:org.apache.ivy.ant">
     <description>
         Minu elu esimene ANT-i build fail
     </description>
 	
-	<property name="src.dir" location="src" />
-	<property name="build.dir" location="build" />
+	<property name="basedir" location="." />
+	<property name="src.dir" location="${basedir}/src" />
+	<property name="build.dir" location="${basedir}/build" />
 	<property name="classes.dir" location="${build.dir}/classes" />
-	<property name="webContent.dir" location="WebContent" />
+	<property name="webContent.dir" location="${basedir}/WebContent" />
 	<property name="lib.dir" location="${webContent.dir}/WEB-INF/lib" />
-	<property name="war.file" location="whatever.war" />
+	<property name="war.file" location="${basedir}/whatever.war" />
 	
 	<property name="managerUrl" value="http://localhost:8080/manager/text" />
 	<property name="managerUsername" value="tomcat" />
 	<property name="managerPassword" value="tomcat" />
 	<property name="deployContextPath" value="D:/apache-tomcat-7.0.42/lib" />
+	
+	<property name="ivy.retrieve.pattern" value="${lib.dir}/[artifact][type][revision].[ext]" />
 	
 	<!-- <property name="src.tests" location="src/tests" />
 	<property name="build.tests" location="build/classes/tests" />
@@ -97,11 +100,21 @@
 	<target name="undeploy">
 		<classpath refid="classpath.tomcat"/>
 		<taskdef name="undeploy"
-		         classname="org.apache.catalina.ant.UndeployTask"/>
+		        classname="org.apache.catalina.ant.UndeployTask"/>
 				<undeploy url="${managerUrl}"
-				username="${managerUsername}"
-				password="${managerPassword}"
-				path="${deployContextPath}" />
+						  username="${managerUsername}"
+						  password="${managerPassword}"
+						  path="${deployContextPath}"/>
 	</target>
-		
+	
+	<path id="classpath">
+		<fileset dir="lib" />
+	</path>
+	
+	<target name="retrieve" description="retreive dependencies">
+		<classpath refid="classpath"/>
+		<taskdef resource="org/apache/ivy/ant/antlib.xml" uri="antlib:org.apache.ivy.ant"/>
+		<ivy:resolve file="${basedir}/ivy.xml" log="downloadonly"/>
+		<ivy:retrieve pattern="${ivy.retrieve.pattern}" conf="default"/>
+	</target>
 </project>
