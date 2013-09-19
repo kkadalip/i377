@@ -38,12 +38,14 @@
 		</fileset>
 	</path>
 	
+	<!-- hetkel yleliigne -->
 	<path id="classpath.tomcat">
 		<fileset dir="${tomcat.dir}/lib">
 			<include name="*.jar" />
 		</fileset>
 	</path>
 
+	<!-- ivy jaride k2ttesaamiseks -->
 	<path id="classpath.retrieve">
 		<fileset dir="${ivylib.dir}">
 			<include name="*.jar" />
@@ -53,6 +55,7 @@
 		</fileset>
 	</path>
 	
+	<!-- kompileerimiseks vajaminev ja tegevused -->
 	<target name="compile" depends="clean, init, retrieve">
 		<javac srcdir="${src.dir}"
 		   	   destdir="${classes.dir}"
