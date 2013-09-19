@@ -27,9 +27,11 @@
 
 	
 	<path id="compile.classpath">
+		<!-- ivy teek -->
 		<fileset dir="${ivylib.dir}">
 			<include name="*.jar" />
 		</fileset>
+		<!-- allat6mmatud failide teegid -->
 		<fileset dir="${lib.dir}">
 			<include name="*.jar" />
 		</fileset>
