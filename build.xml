@@ -17,15 +17,16 @@
 	<property name="build_reports.dir" location = "${build.dir}/reports" />
 	<property name="ivy.retrieve.pattern" location="${lib.dir}/[artifact][type][revision].[ext]"/>
 	<property name="java.class.path" location="${lib.dir};src/Homework2Test.java" />
-	<property name="tomcat.dir" location="D:/apache-tomcat-7.0.42" />
 	
 	<property name="managerUrl" value="http://localhost:8080/manager/text" />
 	<property name="managerUsername" value="tomcat" />
 	<property name="managerPassword" value="tomcat" />
-	<property name="deployContextPath" value="D:/apache-tomcat-7.0.42/lib" />
-	
-	<property file="user.properties" location="." />
 
+	<!--
+	<property name="deployContextPath" location="D:/apache-tomcat-7.0.42/" />
+	<property name="tomcat.dir" location="D:/apache-tomcat-7.0.42" />
+	<property file="user.properties" location="." /> 
+    -->
 	
 	<path id="classpath.compile">
 		<!-- ivy teek -->
@@ -38,7 +39,7 @@
 		</fileset>
 	</path>
 	
-	<!-- hetkel yleliigne -->
+	<!-- deploy taski classpath -->
 	<path id="classpath.tomcat">
 		<fileset dir="${tomcat.dir}/lib">
 			<include name="*.jar" />
@@ -83,6 +84,17 @@
 		<fileset dir="${web_content.dir}"
 			excludes="**/servletapi.jar" />
 		</war>
+	</target>
+	
+	<target name="deploy" depends="war">
+		<taskdef name="deploy"
+		classname="org.apache.catalina.ant.DeployTask"
+		classpathref="classpath.tomcat"/>
+		<deploy url="${managerUrl}"
+		username="${managerUsername}"
+		password="${managerPassword}"
+		path="${deployContextPath}"
+		update="true" war="file:${war.file} " />
 	</target>
 	
 	<target name="test">
