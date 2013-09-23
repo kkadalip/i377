@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <project name="kkadalip" default="compile" basedir="." xmlns:ivy="antlib:org.apache.ivy.ant">
-    <description>
+	<description>
         Minu elu esimene ANT-i build fail
     </description>
-	
+
 	<property name="basedir" location="." />
 	<property name="src.dir" location="${basedir}/src" />
 	<property name="tests.dir" location="${src.dir}/tests" />
@@ -13,22 +13,20 @@
 	<property name="lib.dir" location="${web_content.dir}/WEB-INF/lib" />
 	<property name="war.file" location="${basedir}/kkadalip.war" />
 	<property name="ivylib.dir" location="${basedir}/lib" />
-	<property name="build_tests.dir" location = "${build.dir}/tests" />
-	<property name="build_reports.dir" location = "${build.dir}/reports" />
-	<property name="ivy.retrieve.pattern" location="${lib.dir}/[artifact][type][revision].[ext]"/>
-	<!--
+	<property name="build_tests.dir" location="${build.dir}/tests" />
+	<property name="build_reports.dir" location="${build.dir}/reports" />
+	<property name="ivy.retrieve.pattern" location="${lib.dir}/[artifact][type][revision].[ext]" />
+
 	<property name="java.class.path" location="${lib.dir};src/Homework2Test.java" />
 	<property name="managerUrl" value="http://localhost:8080/manager/text" />
 	<property name="managerUsername" value="tomcat" />
 	<property name="managerPassword" value="tomcat" />
-	-->
 
-	<!--
 	<property name="deployContextPath" location="D:/apache-tomcat-7.0.42/" />
 	<property name="tomcat.dir" location="D:/apache-tomcat-7.0.42" />
 	<property file="user.properties" location="." /> 
-    -->
-	
+
+
 	<path id="classpath.compile">
 		<!-- ivy teek -->
 		<fileset dir="${ivylib.dir}">
@@ -39,7 +37,7 @@
 			<include name="*.jar" />
 		</fileset>
 	</path>
-	
+
 	<!-- deploy taski classpath -->
 	<path id="classpath.tomcat">
 		<fileset dir="${tomcat.dir}/lib">
@@ -56,14 +54,10 @@
 			<include name="*.jar" />
 		</fileset>
 	</path>
-	
+
 	<!-- kompileerimiseks vajaminev ja tegevused -->
 	<target name="compile" depends="clean, init, retrieve">
-		<javac srcdir="${src.dir}"
-		   	   destdir="${classes.dir}"
-			   source="1.6"
-			   target="1.6"
-			   includeantruntime="false">
+		<javac srcdir="${src.dir}" destdir="${classes.dir}" source="1.6" target="1.6" includeantruntime="false">
 			<classpath refid="classpath.compile" />
 		</javac>
 	</target>
@@ -73,57 +67,53 @@
 		<mkdir dir="${build_tests.dir}" />
 		<mkdir dir="${build_reports.dir}" />
 	</target>
-	
+
 	<target name="clean">
 		<delete dir="${build.dir}" />
 		<delete dir="${build_tests.dir}" />
 		<delete dir="${build_reports.dir}" />
 	</target>
-	
+
 	<target name="war" depends="compile">
-		<war destfile="${war.file}"
-			 webxml="${web_content.dir}/WEB-INF/web.xml">
-		<classes dir="${classes.dir}" />
-		<fileset dir="${web_content.dir}"
-			excludes="**/servletapi.jar" />
+		<war destfile="${war.file}" webxml="${web_content.dir}/WEB-INF/web.xml">
+			<classes dir="${classes.dir}" />
+			<fileset dir="${web_content.dir}" excludes="**/servlet-apijar2.5.jar" />
 		</war>
 	</target>
-	<!--
-	<target name="deploy" depends="war">
-		<taskdef name="deploy"
-		classname="org.apache.catalina.ant.DeployTask"
-		classpathref="classpath.tomcat"/>
-		<deploy url="${managerUrl}"
-		username="${managerUsername}"
-		password="${managerPassword}"
-		path="${deployContextPath}"
-		update="true" war="file:${war.file} " />
-	</target>
-	-->
+
+
 	<target name="test">
 		<junit printsummary="yes" haltonfailure="yes">
 			<path>
-				<pathelement location="${build_tests.dir}"/>
-				<pathelement path="${java.class.path}"/>
+				<pathelement location="${build_tests.dir}" />
+				<pathelement path="${java.class.path}" />
 			</path>
-			<formatter type="plain"/>
+			<formatter type="plain" />
 			<test name="my.test.TestCase" haltonfailure="no" outfile="result">
-				<formatter type="xml"/>
+				<formatter type="xml" />
 			</test>
 			<batchtest fork="no" todir="${build_reports.dir}">
-			<fileset dir="${tests.dir}">
-				<include name="**/*Test*.java"/>
-				<exclude name="**/*Util.java"/>
-			</fileset>
+				<fileset dir="${tests.dir}">
+					<include name="**/*Test*.java" />
+					<exclude name="**/*Util.java" />
+				</fileset>
 			</batchtest>
 		</junit>
 	</target>
 
 	<target name="retrieve" description="retreive dependencies">
-		<taskdef resource="org/apache/ivy/ant/antlib.xml"
-		uri="antlib:org.apache.ivy.ant"
-		classpathref="classpath.retrieve" />
-		<ivy:resolve file="${basedir}/ivy.xml" log="downloadonly"/>
+		<taskdef resource="org/apache/ivy/ant/antlib.xml" uri="antlib:org.apache.ivy.ant" classpathref="classpath.retrieve" />
+		<ivy:resolve file="${basedir}/ivy.xml" log="downloadonly" />
 		<ivy:retrieve pattern="${ivy.retrieve.pattern}" conf="default" />
 	</target>
+
+	<target name="deploy" depends="war">
+		<taskdef name="deploy" classname="org.apache.catalina.ant.DeployTask" classpathref="classpath.tomcat" />
+		<deploy url="${managerUrl}" username="${managerUsername}" password="${managerPassword}" path="${deployContextPath}" update="true" war="file:${war.file} " />
+	</target>
+	<target name="undeploy">
+		<taskdef name="undeploy" classname="org.apache.catalina.ant.UndeployTask" classpathref="classpath.tomcat" />
+		<undeploy url="${managerUrl}" username="${managerUsername}" password="${managerPassword}" path="${deployContextPath}" />
+	</target>
+	
 </project>
