@@ -1,46 +1,25 @@
 package osa2;
 
-
 import java.io.IOException;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSessionEvent;
-import javax.servlet.http.HttpSessionListener;
+import javax.servlet.http.HttpSession;
 
-
-//Teine servlet n2itab avatud sessioonide arvu.
-//Sessioonide lugemiseks kasutada listener-i. N2ide loengu
-//slaididelt.
-//N2ide: http://ci.itcollege.ee/part2example/SessionCount
-
-// listeneri jaoks eraldi fail
-public class LogOut extends HttpServlet implements HttpSessionListener {
+//Kolmas servlet v6imaldab sessiooni l6petada.
+//N2ide: http://ci.itcollege.ee/part2example/LogOut
+public class LogOut extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-    
-	private static int sessionCount = 0;
-	@Override
-	public void sessionCreated(HttpSessionEvent event){
-		sessionCount++;
-	}
-	
-	@Override
-	public void sessionDestroyed(HttpSessionEvent event){
-		sessionCount--;
-	}
-	
-	public static int getSessionCount(){
-		return sessionCount;
-	}
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		response.getWriter().println("count: "+getSessionCount());
+		HttpSession session = request.getSession();
+		session.invalidate();
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
+		// TODO Auto-generated method stub
 	}
 
 }

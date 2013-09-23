@@ -22,7 +22,7 @@
 	<property name="managerUsername" value="tomcat" />
 	<property name="managerPassword" value="tomcat" /> -->
 
-	<property name="deployContextPath" location="D:/apache-tomcat-7.0.42/webapps" />
+	<property name="deployContextPath" value="git://github.com/kkadalip/i377.git" />
 	<property name="tomcat.dir" location="D:/apache-tomcat-7.0.42" />
 	<property file="user.properties" location="." />
 

@@ -9,18 +9,7 @@
     <welcome-file>default.htm</welcome-file>
     <welcome-file>default.jsp</welcome-file>
   </welcome-file-list>
-  
-  <servlet>
-    <display-name>Osa1yl1</display-name>
-    <servlet-name>Osa1yl1</servlet-name>
-    <servlet-class>osa1.Osa1yl1</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>Osa1yl1</servlet-name>
-    <url-pattern>/Osa1yl1</url-pattern>
-  </servlet-mapping>
-  
-  <servlet>
+ <servlet>
     <display-name>HomePage</display-name>
     <servlet-name>HomePage</servlet-name>
     <servlet-class>osa2.HomePage</servlet-class>
@@ -29,7 +18,6 @@
     <servlet-name>HomePage</servlet-name>
     <url-pattern>/HomePage</url-pattern>
   </servlet-mapping>
-  
   <servlet>
     <display-name>LogOut</display-name>
     <servlet-name>LogOut</servlet-name>
@@ -39,7 +27,6 @@
     <servlet-name>LogOut</servlet-name>
     <url-pattern>/LogOut</url-pattern>
   </servlet-mapping>
-  
   <servlet>
     <display-name>SessionCount</display-name>
     <servlet-name>SessionCount</servlet-name>
@@ -49,40 +36,7 @@
     <servlet-name>SessionCount</servlet-name>
     <url-pattern>/SessionCount</url-pattern>
   </servlet-mapping>
-  
-  <servlet>
-    <display-name>Praks1yl1</display-name>
-    <servlet-name>Praks1yl1</servlet-name>
-    <servlet-class>praks1.Praks1yl1</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>Praks1yl1</servlet-name>
-    <url-pattern>/Praks1yl1</url-pattern>
-  </servlet-mapping>
-  
-  <servlet>
-    <display-name>Praks1yl2</display-name>
-    <servlet-name>Praks1yl2</servlet-name>
-    <servlet-class>praks1.Praks1yl2</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>Praks1yl2</servlet-name>
-    <url-pattern>/Praks1yl2</url-pattern>
-  </servlet-mapping>
-  
-  <servlet>
-    <display-name>Praks1yl3</display-name>
-    <servlet-name>Praks1yl3</servlet-name>
-    <servlet-class>praks1.Praks1yl3</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>Praks1yl3</servlet-name>
-    <url-pattern>/Praks1yl3</url-pattern>
-  </servlet-mapping>
-  
   <listener>
-    <listener-class>
-      osa2.LogOut
-    </listener-class>
+    <listener-class>osa2.SessionCounterListener</listener-class>
   </listener>
 </web-app>
