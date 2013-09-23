@@ -13,10 +13,10 @@
 	<property name="lib.dir" location="${web_content.dir}/WEB-INF/lib" />
 	<property name="war.file" location="${basedir}/kkadalip.war" />
 	<property name="ivylib.dir" location="${basedir}/lib" />
-	<property name="build_tests.dir" location="${build.dir}/tests" />
-	<property name="build_reports.dir" location="${build.dir}/reports" />
 	<property name="ivy.retrieve.pattern" location="${lib.dir}/[artifact][type][revision].[ext]" />
 	<!--
+	<property name="build_tests.dir" location="${build.dir}/tests" />
+	<property name="build_reports.dir" location="${build.dir}/reports" />
 	<property name="java.class.path" location="src/Homework2Test.java;${lib.dir}" />
 	<property name="managerUrl" value="http://localhost:8080/manager/text" />
 	<property name="managerUsername" value="tomcat" />
@@ -109,6 +109,7 @@
 		<taskdef name="deploy" classname="org.apache.catalina.ant.DeployTask" classpathref="classpath.tomcat" />
 		<!-- githubi kasutaja on path -->
 		<deploy url="${managerUrl}" username="${managerUsername}" password="${managerPassword}" path="${deployContextPath}" update="true" war="file:${war.file} " />
+		
 	</target>
 	<target name="undeploy">
 		<taskdef name="undeploy" classname="org.apache.catalina.ant.UndeployTask" classpathref="classpath.tomcat" />
