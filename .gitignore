@@ -1,5 +1,4 @@
 /build/*
+/tests/*
 /WebContent/WEB-INF/lib/*.jar
-/src/tests/*
-/ivy-orig.xml
 /kkadalip.war
