@@ -1,4 +1,4 @@
-<?xml version="1.0" ?>
+<?xml version="1.0" encoding="UTF-8" ?>
 <project name="kkadalip" default="compile" basedir="." xmlns:ivy="antlib:org.apache.ivy.ant">
     <description>
         Minu elu esimene ANT-i build fail
@@ -16,11 +16,12 @@
 	<property name="build_tests.dir" location = "${build.dir}/tests" />
 	<property name="build_reports.dir" location = "${build.dir}/reports" />
 	<property name="ivy.retrieve.pattern" location="${lib.dir}/[artifact][type][revision].[ext]"/>
+	<!--
 	<property name="java.class.path" location="${lib.dir};src/Homework2Test.java" />
-	
 	<property name="managerUrl" value="http://localhost:8080/manager/text" />
 	<property name="managerUsername" value="tomcat" />
 	<property name="managerPassword" value="tomcat" />
+	-->
 
 	<!--
 	<property name="deployContextPath" location="D:/apache-tomcat-7.0.42/" />
@@ -87,7 +88,7 @@
 			excludes="**/servletapi.jar" />
 		</war>
 	</target>
-	
+	<!--
 	<target name="deploy" depends="war">
 		<taskdef name="deploy"
 		classname="org.apache.catalina.ant.DeployTask"
@@ -98,7 +99,7 @@
 		path="${deployContextPath}"
 		update="true" war="file:${war.file} " />
 	</target>
-	
+	-->
 	<target name="test">
 		<junit printsummary="yes" haltonfailure="yes">
 			<path>
