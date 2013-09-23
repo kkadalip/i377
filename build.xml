@@ -61,14 +61,14 @@
 
 	<target name="init">
 		<mkdir dir="${classes.dir}" />
-		<mkdir dir="${build_tests.dir}" />
-		<mkdir dir="${build_reports.dir}" />
+		<!--  <mkdir dir="${build_tests.dir}" />
+		<mkdir dir="${build_reports.dir}" /> -->
 	</target>
 
 	<target name="clean">
 		<delete dir="${build.dir}" />
-		<delete dir="${build_tests.dir}" />
-		<mkdir dir="${build_reports.dir}" />
+		<!-- <delete dir="${build_tests.dir}" />
+		<delete dir="${build_reports.dir}" /> -->
 	</target>
 
 	<target name="war" depends="compile">
