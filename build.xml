@@ -56,7 +56,7 @@
 	</path>
 
 	<!-- kompileerimiseks vajaminev ja tegevused -->
-	<target name="compile" depends="clean, init, retrieve, war">
+	<target name="compile" depends="clean, init, retrieve">
 		<javac srcdir="${src.dir}" destdir="${classes.dir}" source="1.6" target="1.6" includeantruntime="false">
 			<classpath refid="classpath.compile" />
 		</javac>
