@@ -11,16 +11,11 @@ import javax.servlet.http.HttpServletResponse;
 //Sessioonide lugemiseks kasutada listener-i. N2ide loengu
 //slaididelt.
 //N2ide: http://ci.itcollege.ee/part2example/SessionCount
-
-public class SessionCount {
+public class SessionCount extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	
-	SessionCounterListener scl = new SessionCounterListener();
-	Integer numberOfSessions = SessionCounterListener.getTotalActiveSessions();
-	
-	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		response.getWriter().println(numberOfSessions.toString());
+		response.getWriter().println("count: " + SessionCounterListener.getTotalActiveSessions());
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
