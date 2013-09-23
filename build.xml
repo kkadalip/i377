@@ -17,14 +17,14 @@
 	<property name="build_reports.dir" location="${build.dir}/reports" />
 	<property name="ivy.retrieve.pattern" location="${lib.dir}/[artifact][type][revision].[ext]" />
 
-	<property name="java.class.path" location="${lib.dir};src/Homework2Test.java" />
-	<property name="managerUrl" value="http://localhost:8080/manager/text" />
+	<!-- <property name="java.class.path" location="src/Homework2Test.java;${lib.dir}" /> -->
+	<!-- <property name="managerUrl" value="http://localhost:8080/manager/text" />
 	<property name="managerUsername" value="tomcat" />
-	<property name="managerPassword" value="tomcat" />
+	<property name="managerPassword" value="tomcat" /> -->
 
-	<property name="deployContextPath" location="D:/apache-tomcat-7.0.42/" />
+	<property name="deployContextPath" location="D:/apache-tomcat-7.0.42/webapps" />
 	<property name="tomcat.dir" location="D:/apache-tomcat-7.0.42" />
-	<property file="user.properties" location="." /> 
+	<property file="user.properties" location="." />
 
 
 	<path id="classpath.compile">
@@ -65,11 +65,13 @@
 	<target name="init">
 		<mkdir dir="${classes.dir}" />
 		<mkdir dir="${build_tests.dir}" />
+		<mkdir dir="${build_reports.dir}" />
 	</target>
 
 	<target name="clean">
 		<delete dir="${build.dir}" />
 		<delete dir="${build_tests.dir}" />
+		<mkdir dir="${build_reports.dir}" />
 	</target>
 
 	<target name="war" depends="compile">
@@ -81,16 +83,16 @@
 
 	<target name="test">
 		<junit printsummary="yes" haltonfailure="yes">
-			<path>
-				<pathelement location="${build_tests.dir}" />
+			<classpath>
+				<pathelement location="${build.tests src test}" />
 				<pathelement path="${java.class.path}" />
-			</path>
+			</classpath>
 			<formatter type="plain" />
 			<test name="my.test.TestCase" haltonfailure="no" outfile="result">
 				<formatter type="xml" />
 			</test>
-			<batchtest fork="no" todir="${build_reports.dir}">
-				<fileset dir="${tests.dir}">
+			<batchtest fork="no" todir="${reports.tests}">
+				<fileset dir="${src.tests}">
 					<include name="**/*Test*.java" />
 					<exclude name="**/*Util.java" />
 				</fileset>
@@ -106,11 +108,12 @@
 
 	<target name="deploy" depends="war">
 		<taskdef name="deploy" classname="org.apache.catalina.ant.DeployTask" classpathref="classpath.tomcat" />
+		<!-- githubi kasutaja on path -->
 		<deploy url="${managerUrl}" username="${managerUsername}" password="${managerPassword}" path="${deployContextPath}" update="true" war="file:${war.file} " />
 	</target>
 	<target name="undeploy">
 		<taskdef name="undeploy" classname="org.apache.catalina.ant.UndeployTask" classpathref="classpath.tomcat" />
 		<undeploy url="${managerUrl}" username="${managerUsername}" password="${managerPassword}" path="${deployContextPath}" />
 	</target>
-	
+
 </project>

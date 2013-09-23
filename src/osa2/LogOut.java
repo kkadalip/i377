@@ -15,6 +15,8 @@ import javax.servlet.http.HttpSessionListener;
 //Sessioonide lugemiseks kasutada listener-i. N2ide loengu
 //slaididelt.
 //N2ide: http://ci.itcollege.ee/part2example/SessionCount
+
+// listeneri jaoks eraldi fail
 public class LogOut extends HttpServlet implements HttpSessionListener {
 	private static final long serialVersionUID = 1L;
     
