@@ -56,7 +56,7 @@
 	</path>
 
 	<!-- kompileerimiseks vajaminev ja tegevused -->
-	<target name="compile" depends="clean, init, retrieve">
+	<target name="compile" depends="clean, init, retrieve, war">
 		<javac srcdir="${src.dir}" destdir="${classes.dir}" source="1.6" target="1.6" includeantruntime="false">
 			<classpath refid="classpath.compile" />
 		</javac>
@@ -65,13 +65,11 @@
 	<target name="init">
 		<mkdir dir="${classes.dir}" />
 		<mkdir dir="${build_tests.dir}" />
-		<mkdir dir="${build_reports.dir}" />
 	</target>
 
 	<target name="clean">
 		<delete dir="${build.dir}" />
 		<delete dir="${build_tests.dir}" />
-		<delete dir="${build_reports.dir}" />
 	</target>
 
 	<target name="war" depends="compile">
@@ -80,7 +78,6 @@
 			<fileset dir="${web_content.dir}" excludes="**/servlet-apijar2.5.jar" />
 		</war>
 	</target>
-
 
 	<target name="test">
 		<junit printsummary="yes" haltonfailure="yes">
