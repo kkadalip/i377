@@ -16,16 +16,13 @@
 	<property name="build_tests.dir" location="${build.dir}/tests" />
 	<property name="build_reports.dir" location="${build.dir}/reports" />
 	<property name="ivy.retrieve.pattern" location="${lib.dir}/[artifact][type][revision].[ext]" />
-
 	<!-- <property name="java.class.path" location="src/Homework2Test.java;${lib.dir}" /> -->
 	<!-- <property name="managerUrl" value="http://localhost:8080/manager/text" />
 	<property name="managerUsername" value="tomcat" />
-	<property name="managerPassword" value="tomcat" /> -->
-
-	<property name="deployContextPath" value="git://github.com/kkadalip/i377.git" />
+	<property name="managerPassword" value="tomcat" />
+	<property name="deployContextPath" value="git://github.com/kkadalip/i377.git" /> 
 	<property name="tomcat.dir" location="D:/apache-tomcat-7.0.42" />
-	<property file="user.properties" location="." />
-
+	<property file="user.properties" location="${basedir}" /> -->
 
 	<path id="classpath.compile">
 		<!-- ivy teek -->
