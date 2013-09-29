@@ -15,17 +15,15 @@ import javax.servlet.http.HttpSession;
 //N2ide: http://ci.itcollege.ee/part2example/HomePage
 public class HomePage extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
+    public static final String sessionParameter = "param";
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
 		HttpSession session = request.getSession();
 		String sessionId = session.getId();
-		String sessionParameter;
 		response.getWriter().println("Hello");
 		response.getWriter().println("Your session id is "+sessionId);
-		sessionParameter = request.getParameter("param");
-		session.setAttribute("param", sessionParameter);
+		Object urlParameter = request.getParameter(sessionParameter);
+		session.setAttribute(sessionParameter, urlParameter);
 		response.getWriter().println("Session attribute is "+sessionParameter);
 	}
 
