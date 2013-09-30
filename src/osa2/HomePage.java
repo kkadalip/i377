@@ -1,7 +1,6 @@
 package osa2;
 
 import java.io.IOException;
-
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -15,22 +14,22 @@ import javax.servlet.http.HttpSession;
 //N2ide: http://ci.itcollege.ee/part2example/HomePage
 public class HomePage extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-    public static final String sessionParameter = "param";
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		String paramText = "param";
 		HttpSession session = request.getSession();
 		String sessionId = session.getId();
+		String param = request.getParameter(paramText);
+		String sessionParam = (String) session.getAttribute(paramText);
+		if (!param.isEmpty()) {
+			request.getSession().setAttribute(paramText, param);
+			sessionParam = param;
+		}
 		response.getWriter().println("Hello");
 		response.getWriter().println("Your session id is "+sessionId);
-		//Object urlParameter = request.getParameter(sessionParameter);
-		Object urlParameter = session.getAttribute(sessionParameter);
-		session.setAttribute(sessionParameter, urlParameter);
-		response.getWriter().println("Session attribute is "+sessionParameter);
+		response.getWriter().println("Session attribute is "+sessionParam);	
 	}
-
 	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
 	}
-
 }
