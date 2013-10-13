@@ -35,12 +35,14 @@
 
 	<target name="init">
 		<mkdir dir="${classes.dir}" />
+		<!--
 		<copy todir="${build.dir}/classes">
 			<fileset dir="${basedir}/src">
 	            <include name="schema.sql"/>
 	            <include name="testdata.sql"/>
 			</fileset>
 		</copy>
+		-->
 	</target>
 
 	<target name="clean">
