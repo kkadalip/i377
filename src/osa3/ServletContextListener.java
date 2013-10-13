@@ -6,7 +6,7 @@ import javax.servlet.ServletContextEvent;
 public class ServletContextListener implements javax.servlet.ServletContextListener {
 	
     public void contextInitialized(ServletContextEvent arg0) {
-    	System.out.println("ServletContextListener initialized");
+    	//System.out.println("ServletContextListener initialized");
     	dao.SetupDao setup = new dao.SetupDao();
     	setup.destroy();
     	setup.createSchema();
@@ -14,7 +14,7 @@ public class ServletContextListener implements javax.servlet.ServletContextListe
     }
 
     public void contextDestroyed(ServletContextEvent arg0) {
-    	System.out.println("ServletContextListener destroyed");
+    	//System.out.println("ServletContextListener destroyed");
     }
 	
 }
