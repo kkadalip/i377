@@ -35,6 +35,12 @@
 
 	<target name="init">
 		<mkdir dir="${classes.dir}" />
+		<copy todir="${build.dir}/classes">
+			<fileset dir="${basedir}/src">
+	            <include name="schema.sql"/>
+	            <include name="testdata.sql"/>
+			</fileset>
+		</copy>
 	</target>
 
 	<target name="clean">
@@ -44,7 +50,7 @@
 	<target name="war" depends="compile">
 		<war destfile="${war.file}" webxml="${web_content.dir}/WEB-INF/web.xml">
 			<classes dir="${classes.dir}" />
-			<fileset dir="${web_content.dir}" excludes="**/servlet-apijar2.5.jar" />
+			<fileset dir="${web_content.dir}" excludes="**/servlet-api-jar-2.5.jar" />
 			<fileset dir="${basedir}/src">
                 <include name="schema.sql"/>
                 <include name="testdata.sql"/>
