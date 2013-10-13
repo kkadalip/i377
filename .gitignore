@@ -1,4 +1,3 @@
 /build/*
-/tests/*
 /WebContent/WEB-INF/lib/*.jar
 /kkadalip.war
