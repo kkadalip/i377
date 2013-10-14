@@ -12,7 +12,7 @@ public class ServletContextListener implements javax.servlet.ServletContextListe
     	dao.SetupDao setup = new dao.SetupDao();
     	setup.destroy();
     	setup.createSchema();
-    	setup.createDefaultValues();
+    	//setup.createDefaultValues();
     }
 
     @Override
