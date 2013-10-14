@@ -39,7 +39,7 @@
 		<copy todir="${build.dir}/classes">
 			<fileset dir="${basedir}/src">
 	            <include name="schema.sql"/>
-	            <include name="testdata.sql"/>
+	            <include name="defaultValues.sql"/>
 			</fileset>
 		</copy>
 		-->
@@ -55,7 +55,7 @@
 			<fileset dir="${web_content.dir}" excludes="**/servlet-api-jar-2.5.jar" />
 			<fileset dir="${basedir}/src">
                 <include name="schema.sql"/>
-                <include name="testdata.sql"/>
+                <include name="defaultValues.sql"/>
 			</fileset>
 		</war>
 	</target>
