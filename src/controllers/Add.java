@@ -39,7 +39,7 @@ public class Add extends HttpServlet {
 			e.printStackTrace();
 		}
 	}
-	
+
 	private void getUnits(HttpServletRequest request){
 		List<Unit> unitsList = new ArrayList<Unit>();
 
