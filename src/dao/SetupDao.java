@@ -19,7 +19,7 @@ public class SetupDao extends AbstractDao {
 	}
 
 	public void createDefaultValues() {
-		executeSqlFromFile(getClassPathFile("testdata.sql"));
+		executeSqlFromFile(getClassPathFile("defaultValues.sql"));
 	}
 
 	public void destroy() {
