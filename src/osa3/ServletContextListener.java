@@ -8,11 +8,12 @@ public class ServletContextListener implements javax.servlet.ServletContextListe
 	
 	@Override
     public void contextInitialized(ServletContextEvent arg0) {
-    	//System.out.println("ServletContextListener initialized");
+    	System.out.println("[START] ServletContextListener initialized");
     	dao.SetupDao setup = new dao.SetupDao();
     	setup.destroy();
     	setup.createSchema();
     	setup.createDefaultValues();
+    	System.out.println("[END] ServletContextListener initialized");
     }
 
     @Override

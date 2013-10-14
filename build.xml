@@ -53,10 +53,12 @@
 		<war destfile="${war.file}" webxml="${web_content.dir}/WEB-INF/web.xml">
 			<classes dir="${classes.dir}" />
 			<fileset dir="${web_content.dir}" excludes="**/servlet-api-jar-2.5.jar" />
-			<fileset dir="${basedir}/src">
-                <include name="schema.sql"/>
-                <include name="defaultValues.sql"/>
-			</fileset>
+			<!--<fileset dir="${basedir}/src">
+				<include name="*.sql" />
+							</fileset>-->
+			<!--<include name="defaultValues.sql"/>
+			                <include name="schema.sql"/>-->
+			<zipfileset dir="${src.dir}" includes="*.sql" prefix="WEB-INF/classes" />
 		</war>
 	</target>
 

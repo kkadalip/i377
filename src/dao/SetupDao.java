@@ -28,6 +28,7 @@ public class SetupDao extends AbstractDao {
 
 	private String getClassPathFile(String fileName) {
 		return getClass().getClassLoader().getResource(fileName).getFile();
+		//return getClass().getResource(fileName).getFile();
 	}
 
 	private void executeSqlFromFile(String sqlFilePath) {
